@@ -1,6 +1,6 @@
 ![jepa emoji](jepa-emoji.png)
-#NEJEPA: JEPA-Based Multimodal World Model for Real-Time Intention Recognition in Human-Robot Collaboration
-**Neural Embodied Joint-Embedding Predictive Architecture with Violation-of-Expectation Intent Detection**
+**#NEJEPA: JEPA-Based Multimodal World Model for Real-Time Intention Recognition in Human-Robot Collaboration Neural Embodied Joint-Embedding Predictive Architecture with Violation-of-Expectation Intent Detection**
+
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
