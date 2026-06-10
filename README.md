@@ -1,5 +1,4 @@
-# 🧠 NEJEPA: Neuromorphic Embodied JEPA for Collaborative Assembly
-
+#  NEJEPA: JEPA-Based Multimodal World Model for Real-Time Intention Recognition in Human-Robot Collaboration
 **Neural Embodied Joint-Embedding Predictive Architecture with Violation-of-Expectation Intent Detection**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
