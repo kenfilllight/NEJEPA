@@ -216,6 +216,59 @@ NEJEPA/
 └── README.md                       # 項目文檔
 ```
 
+
+### 📄 License
+
+MIT License - see [LICENSE](LICENSE) for details
+
+### 📧 Contact
+
+- **Author**: Ken Filllight
+- **GitHub**: [@kenfilllight](https://github.com/kenfilllight)
+
+---
+
+<a name="繁體中文"></a>
+## 🌟 繁體中文版本
+
+### 概述
+
+NEJEPA 是一個結合**視覺、動作與語言**的三流融合世界模型,專為人機協作裝配任務設計。基於 Meta FAIR 的 V-JEPA 2 骨幹,具備:
+
+- ✅ **早期意圖預測**: 在任務完成 30%/50%/70% 時預測人類意圖
+- ✅ **VoE(意圖違反偵測)**: 透過潛在空間驚奇分數即時偵測意圖切換
+- ✅ **自適應重規劃**: 當意圖偏離超過閾值時,使用 CEM 搜尋新軌跡
+
+### 核心公式
+
+**意圖偏離分數:**
+
+當預測潛在表示與觀測值偏離時,計算驚奇分數:
+
+$$
+S_t = \|\hat{z}_t - z_t\|_2
+$$
+
+當 $$S_t > \tau$$ 時觸發 CEM 重規劃,其中 $$\tau$$ 為動態閾值(95% 分位數)。
+
+### 📦 安裝
+
+```bash
+# 複製專案
+git clone https://github.com/kenfilllight/NEJEPA.git
+cd NEJEPA
+
+# 建立環境
+conda create -n nejepa python=3.10
+conda activate nejepa
+
+# 安裝依賴
+pip install -r requirements.txt
+
+# 下載預訓練權重
+bash scripts/download_weights.sh
+```
+
 ## 🏗️ 核心模塊說明
 
 ### src/models/ - 模型組件
@@ -285,59 +338,6 @@ git commit -m "feat(voe): add adaptive threshold"
 # Push & create PR
 git push origin feature/your-feature
 ```
-
-### 📄 License
-
-MIT License - see [LICENSE](LICENSE) for details
-
-### 📧 Contact
-
-- **Author**: Ken Filllight
-- **GitHub**: [@kenfilllight](https://github.com/kenfilllight)
-
----
-
-<a name="繁體中文"></a>
-## 🌟 繁體中文版本
-
-### 概述
-
-NEJEPA 是一個結合**視覺、動作與語言**的三流融合世界模型,專為人機協作裝配任務設計。基於 Meta FAIR 的 V-JEPA 2 骨幹,具備:
-
-- ✅ **早期意圖預測**: 在任務完成 30%/50%/70% 時預測人類意圖
-- ✅ **VoE(意圖違反偵測)**: 透過潛在空間驚奇分數即時偵測意圖切換
-- ✅ **自適應重規劃**: 當意圖偏離超過閾值時,使用 CEM 搜尋新軌跡
-
-### 核心公式
-
-**意圖偏離分數:**
-
-當預測潛在表示與觀測值偏離時,計算驚奇分數:
-
-$$
-S_t = \|\hat{z}_t - z_t\|_2
-$$
-
-當 $$S_t > \tau$$ 時觸發 CEM 重規劃,其中 $$\tau$$ 為動態閾值(95% 分位數)。
-
-### 📦 安裝
-
-```bash
-# 複製專案
-git clone https://github.com/kenfilllight/NEJEPA.git
-cd NEJEPA
-
-# 建立環境
-conda create -n nejepa python=3.10
-conda activate nejepa
-
-# 安裝依賴
-pip install -r requirements.txt
-
-# 下載預訓練權重
-bash scripts/download_weights.sh
-```
-
 ### 🚀 快速開始
 
 #### 階段一: 三流融合 (M1-M4)
