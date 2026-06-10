@@ -632,42 +632,6 @@ replanner:
 
 ---
 
-## 📜 引用
-
-如果您在研究中使用 NEJEPA,請引用:
-
-```bibtex
-@misc{nejepa2026,
-  title={NEJEPA: Neuromorphic Embodied JEPA for Collaborative Assembly},
-  author={Filllight, Ken},
-  year={2026},
-  url={https://github.com/kenfilllight/NEJEPA}
-}
-```
-
-### 相關引用
-
-```bibtex
-@article{assran2025vjepa2,
-  title={V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning},
-  author={Assran, Mahmoud and Bardes, Adrien and Fan, Dora and others},
-  journal={arXiv preprint arXiv:2506.xxxxx},
-  year={2025}
-}
-
-@article{dreher2020bimanual,
-  title={Learning Object-Action Relations from Bimanual Human Demonstration},
-  author={Dreher, Christian RG and W{\"a}chter, Mirko and Asfour, Tamim},
-  journal={IEEE Robotics and Automation Letters},
-  volume={5},
-  number={2},
-  pages={3820--3827},
-  year={2020}
-}
-```
-
----
-
 ## 🙏 致謝
 
 本專案基於以下開源專案與研究:
