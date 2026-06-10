@@ -168,25 +168,90 @@ python eval/latency.py \
 
 ```
 NEJEPA/
-├── nejepa/
+├── baselines/                      # 基準模型和對比方法
+│   ├── vjepa_baseline.py
+│   └── other_methods/
+├── checkpoints/                    # 模型檢查點 (已忽略)
+│   ├── vjepa2_pretrained/
+│   ├── fusion_model/
+│   └── voe_model/
+├── configs/                        # YAML 配置文件
+│   ├── fusion_config.yaml          # Phase 1 融合訓練配置
+│   ├── voe_config.yaml             # Phase 2 VoE 訓練配置
+│   └── inference_config.yaml       # 推理配置
+├── notebooks/                      # Jupyter 筆記本
+│   ├── exploration.ipynb           # 數據探索
+│   ├── visualization.ipynb         # 結果可視化
+│   └── demo.ipynb                  # 演示
+├── scripts/                        # 輔助腳本
+│   ├── download_weights.sh         # 下載預訓練權重
+│   ├── train_fusion.sh             # Phase 1 訓練腳本
+│   └── train_voe.sh                # Phase 2 訓練腳本
+├── src/                            # 核心源代碼
 │   ├── models/
-│   │   ├── vjepa2.py          # Vision encoder (M1)
-│   │   ├── vjepa2_ac.py       # Action predictor (M2)
-│   │   └── vl_adapter.py      # Language adapter (M3)
-│   ├── fusion.py              # Three-stream fusion (M4)
+│   │   ├── vjepa2.py               # Vision encoder (M1)
+│   │   ├── vjepa2_ac.py            # Action predictor (M2)
+│   │   └── vl_adapter.py           # Language adapter (M3)
+│   ├── fusion.py                   # Three-stream fusion (M4)
 │   ├── voe/
-│   │   ├── detector.py        # VoE scoring (M5-M6)
-│   │   └── replanner.py       # CEM search (M7-M8)
-│   └── data/
-│       ├── bimanual.py        # Bimanual Actions dataset
-│       └── comad.py           # CoMaD dataset
-├── scripts/
-│   ├── train_fusion.sh        # Phase 1 training
-│   └── train_voe.sh           # Phase 2 training
-├── eval/                      # Phase 3 evaluation
-├── configs/                   # YAML configs
-└── requirements.txt
+│   │   ├── detector.py             # VoE scoring (M5-M6)
+│   │   └── replanner.py            # CEM search (M7-M8)
+│   ├── data/
+│   │   ├── bimanual.py             # Bimanual Actions dataset
+│   │   ├── comad.py                # CoMaD dataset
+│   │   └── loaders.py              # 數據加載器
+│   └── utils/
+│       ├── metrics.py              # 評估指標
+│       ├── visualization.py        # 可視化工具
+│       └── logger.py               # 日誌記錄
+├── evaluate.py                     # Phase 3 評估腳本
+├── inference.py                    # 推理腳本
+├── train_full.py                   # 完整訓練流程
+├── train_with_voe.py               # 包含 VoE 的訓練流程
+├── requirements.txt                # Python 依賴
+├── setup.py                        # 包設置
+├── LICENSE                         # MIT 許可證
+├── .gitignore                      # Git 忽略規則
+├── .gitattributes                  # Git 屬性
+└── README.md                       # 項目文檔
 ```
+
+## 🏗️ 核心模塊說明
+
+### src/models/ - 模型組件
+
+| 模塊 | 代碼文件 | 功能描述 |
+|------|---------|--------|
+| **M1** | vjepa2.py | Vision Encoder - V-JEPA 2 ViT-g 視覺編碼器 |
+| **M2** | vjepa2_ac.py | Action Predictor - 動作條件預測器 |
+| **M3** | vl_adapter.py | Language Adapter - 語言對齊適配器 |
+
+### src/fusion.py - 融合層
+
+| 模塊 | 功能 |
+|------|------|
+| **M4** | Three-Stream Fusion - 三流融合層 (對比學習) |
+
+### src/voe/ - 期望違反檢測
+
+| 模塊 | 代碼文件 | 功能描述 |
+|------|---------|--------|
+| **M5-M6** | detector.py | VoE Detector - 潛在空間驚奇評分 |
+| **M7-M8** | replanner.py | CEM Replanner - 交叉熵方法軌跡搜索 |
+
+### src/data/ - 數據集
+
+| 數據集 | 代碼文件 | 說明 |
+|--------|---------|------|
+| Bimanual Actions | bimanual.py | 雙臂操作數據集 |
+| CoMaD | comad.py | 協作組裝數據集 |
+
+## 🚀 訓練流程
+
+### Phase 1: 三流融合訓練 (M1-M4)
+
+```bash
+python train_full.py --config configs/fusion_config.yaml
 
 ### 🔗 Key References
 
