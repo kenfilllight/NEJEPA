@@ -1,0 +1,9 @@
+# M5: 動態閾值
+voe:
+  method: lewm
+  window_size: 10
+  quantile: 0.95
+  
+threshold:
+  init_value: 0.5
+  update_rate: 0.1

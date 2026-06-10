@@ -1,0 +1,14 @@
+# M1: 視覺骨幹配置
+model:
+  name: vjepa2_encoder
+  pretrained: true
+  freeze_backbone: false
+  
+encoder:
+  type: vjepa2
+  hidden_dim: 768
+  num_layers: 12
+  
+training:
+  lr: 1e-4
+  warmup_steps: 1000

@@ -1,0 +1,14 @@
+# M3: 語言對齊
+model:
+  name: vljepa_align
+  text_encoder: t5-base
+  vision_dim: 768
+  text_dim: 768
+  
+alignment:
+  type: cross_attention
+  num_heads: 8
+  
+training:
+  lr: 1e-4
+  temperature: 0.07

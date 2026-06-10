@@ -1,0 +1,14 @@
+# M2: 動作條件預測器
+model:
+	name: action_conditioned
+	input_dim: 768
+	action_dim: 7
+	
+predictor:
+	type: transformer
+	num_heads: 8
+	num_layers: 6
+	
+training:
+	lr: 5e-4
+	batch_size: 32

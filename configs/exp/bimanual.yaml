@@ -1,0 +1,8 @@
+experiment: bimanual
+dataset:
+  name: bimanual_dataset
+  split: [0.7, 0.15, 0.15]
+  
+training:
+  epochs: 100
+  batch_size: 32

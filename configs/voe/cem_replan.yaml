@@ -1,0 +1,9 @@
+# M7: CEM 重規劃
+cem:
+  population_size: 100
+  elite_ratio: 0.1
+  num_iterations: 5
+  
+latent_space:
+  dim: 256
+  bounds: [-3.0, 3.0]
